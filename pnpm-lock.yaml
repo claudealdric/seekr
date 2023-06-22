@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 dependencies:
   '@nestjs/common':
     specifier: ^9.1.1
@@ -1938,7 +1934,6 @@ packages:
     dependencies:
       '@nx/eslint-plugin': 16.3.2(@typescript-eslint/parser@5.60.0)(eslint-config-prettier@8.1.0)(eslint@8.15.0)(nx@16.3.2)(typescript@5.0.4)
     transitivePeerDependencies:
-      - '@babel/traverse'
       - '@swc-node/register'
       - '@swc/core'
       - '@typescript-eslint/parser'
@@ -1956,7 +1951,6 @@ packages:
     dependencies:
       '@nx/jest': 16.3.2(@types/node@18.7.23)(nx@16.3.2)(ts-node@10.9.1)(typescript@5.0.4)
     transitivePeerDependencies:
-      - '@babel/traverse'
       - '@swc-node/register'
       - '@swc/core'
       - '@types/node'
@@ -1974,7 +1968,6 @@ packages:
     dependencies:
       '@nx/js': 16.3.2(nx@16.3.2)(typescript@5.0.4)
     transitivePeerDependencies:
-      - '@babel/traverse'
       - '@swc-node/register'
       - '@swc/core'
       - debug
@@ -1989,7 +1982,6 @@ packages:
     dependencies:
       '@nx/linter': 16.3.2(eslint@8.15.0)(nx@16.3.2)(typescript@5.0.4)
     transitivePeerDependencies:
-      - '@babel/traverse'
       - '@swc-node/register'
       - '@swc/core'
       - debug
@@ -2005,7 +1997,6 @@ packages:
     dependencies:
       '@nx/nest': 16.3.2(@types/node@18.7.23)(eslint@8.15.0)(nx@16.3.2)(ts-node@10.9.1)(typescript@5.0.4)
     transitivePeerDependencies:
-      - '@babel/traverse'
       - '@swc-node/register'
       - '@swc/core'
       - '@types/node'
@@ -2025,7 +2016,6 @@ packages:
     dependencies:
       '@nx/node': 16.3.2(@types/node@18.7.23)(eslint@8.15.0)(nx@16.3.2)(ts-node@10.9.1)(typescript@5.0.4)
     transitivePeerDependencies:
-      - '@babel/traverse'
       - '@swc-node/register'
       - '@swc/core'
       - '@types/node'
@@ -2055,7 +2045,6 @@ packages:
     dependencies:
       '@nx/webpack': 16.3.2(@types/node@18.7.23)(nx@16.3.2)(typescript@5.0.4)
     transitivePeerDependencies:
-      - '@babel/traverse'
       - '@parcel/css'
       - '@swc-node/register'
       - '@swc/core'
@@ -2135,7 +2124,6 @@ packages:
       eslint-config-prettier: 8.1.0(eslint@8.15.0)
       semver: 7.3.4
     transitivePeerDependencies:
-      - '@babel/traverse'
       - '@swc-node/register'
       - '@swc/core'
       - debug
@@ -2164,7 +2152,6 @@ packages:
       resolve.exports: 1.1.0
       tslib: 2.5.3
     transitivePeerDependencies:
-      - '@babel/traverse'
       - '@swc-node/register'
       - '@swc/core'
       - '@types/node'
@@ -2198,7 +2185,7 @@ packages:
       '@phenomnomnominal/tsquery': 5.0.1(typescript@5.0.4)
       babel-plugin-const-enum: 1.2.0(@babel/core@7.22.5)
       babel-plugin-macros: 2.8.0
-      babel-plugin-transform-typescript-metadata: 0.3.2(@babel/core@7.22.5)
+      babel-plugin-transform-typescript-metadata: 0.3.2
       chalk: 4.1.2
       fast-glob: 3.2.7
       fs-extra: 11.1.1
@@ -2209,7 +2196,6 @@ packages:
       source-map-support: 0.5.19
       tslib: 2.5.3
     transitivePeerDependencies:
-      - '@babel/traverse'
       - '@swc-node/register'
       - '@swc/core'
       - debug
@@ -2234,7 +2220,6 @@ packages:
       tmp: 0.2.1
       tslib: 2.5.3
     transitivePeerDependencies:
-      - '@babel/traverse'
       - '@swc-node/register'
       - '@swc/core'
       - debug
@@ -2255,7 +2240,6 @@ packages:
       '@nx/node': 16.3.2(@types/node@18.7.23)(eslint@8.15.0)(nx@16.3.2)(ts-node@10.9.1)(typescript@5.0.4)
       enquirer: 2.3.6
     transitivePeerDependencies:
-      - '@babel/traverse'
       - '@swc-node/register'
       - '@swc/core'
       - '@types/node'
@@ -2281,7 +2265,6 @@ packages:
       '@nx/workspace': 16.3.2
       tslib: 2.5.3
     transitivePeerDependencies:
-      - '@babel/traverse'
       - '@swc-node/register'
       - '@swc/core'
       - '@types/node'
@@ -2430,7 +2413,6 @@ packages:
       webpack-node-externals: 3.0.0
       webpack-subresource-integrity: 5.1.0(webpack@5.88.0)
     transitivePeerDependencies:
-      - '@babel/traverse'
       - '@parcel/css'
       - '@swc-node/register'
       - '@swc/core'
@@ -3334,16 +3316,9 @@ packages:
       - supports-color
     dev: true
 
-  /babel-plugin-transform-typescript-metadata@0.3.2(@babel/core@7.22.5):
+  /babel-plugin-transform-typescript-metadata@0.3.2:
     resolution: {integrity: sha512-mWEvCQTgXQf48yDqgN7CH50waTyYBeP2Lpqx4nNWab9sxEpdXVeKgfj1qYI2/TgUPQtNFZ85i3PemRtnXVYYJg==}
-    peerDependencies:
-      '@babel/core': ^7
-      '@babel/traverse': ^7
-    peerDependenciesMeta:
-      '@babel/traverse':
-        optional: true
     dependencies:
-      '@babel/core': 7.22.5
       '@babel/helper-plugin-utils': 7.22.5
     dev: true
 
@@ -8143,3 +8118,7 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
