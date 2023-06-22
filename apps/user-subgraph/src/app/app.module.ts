@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { GraphQLModule } from '@nestjs/graphql';
 import { Module } from '@nestjs/common';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { Module } from '@nestjs/common';
       playground: false,
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
     }),
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
