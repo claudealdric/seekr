@@ -5,6 +5,9 @@
   "engines": {
     "node": ">=18.15.0 <19"
   },
+  "volta": {
+    "node": "18.16.1"
+  },
   "scripts": {},
   "private": true,
   "dependencies": {
