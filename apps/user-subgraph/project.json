@@ -1,0 +1,64 @@
+{
+  "name": "user-subgraph",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/user-subgraph/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/user-subgraph",
+        "main": "apps/user-subgraph/src/main.ts",
+        "tsConfig": "apps/user-subgraph/tsconfig.app.json",
+        "assets": ["apps/user-subgraph/src/assets"],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/user-subgraph/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "user-subgraph:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "user-subgraph:build:development"
+        },
+        "production": {
+          "buildTarget": "user-subgraph:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/user-subgraph/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/user-subgraph/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}
