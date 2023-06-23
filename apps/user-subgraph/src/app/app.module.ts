@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { GraphQLModule } from '@nestjs/graphql';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from './users/user.entity';
 import { UsersModule } from './users/users.module';
 
 @Module({
@@ -22,7 +23,7 @@ import { UsersModule } from './users/users.module';
       username: 'postgres',
       password: 'postgres',
       database: 'postgres',
-      entities: [],
+      entities: [User],
       synchronize: true,
     }),
     UsersModule,
