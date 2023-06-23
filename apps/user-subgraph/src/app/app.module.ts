@@ -15,6 +15,7 @@ import { UsersModule } from './users/users.module';
       autoSchemaFile: true,
       playground: false,
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
+      introspection: true,
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
