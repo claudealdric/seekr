@@ -8,7 +8,7 @@ export class UsersResolver {
   constructor(private readonly usersService: UsersService) {}
 
   @Query(() => [User])
-  getUsers(): User[] {
+  getUsers(): Promise<User[]> {
     return this.usersService.getUsers();
   }
 }
