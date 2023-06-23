@@ -1,20 +1,14 @@
 import { Query, Resolver } from '@nestjs/graphql';
 
 import { User } from './user.object';
+import { UsersService } from './users.service';
 
 @Resolver(() => User)
 export class UsersResolver {
-  private readonly users: User[] = [
-    {
-      id: 1,
-      firstName: 'Claude',
-      lastName: 'Aldric',
-      email: 'claude.aldric@email.com',
-    },
-  ];
+  constructor(private readonly usersService: UsersService) {}
 
   @Query(() => [User])
   getUsers(): User[] {
-    return this.users;
+    return this.usersService.getUsers();
   }
 }
