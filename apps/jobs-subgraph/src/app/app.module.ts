@@ -4,6 +4,7 @@ import { Module } from "@nestjs/common";
 import { GraphQLModule } from "@nestjs/graphql";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { AppController } from "./app.controller";
+import { JobsModule } from "./jobs/jobs.module";
 
 @Module({
 	imports: [
@@ -24,6 +25,7 @@ import { AppController } from "./app.controller";
 			entities: [],
 			synchronize: true,
 		}),
+		JobsModule,
 	],
 	controllers: [AppController],
 })
