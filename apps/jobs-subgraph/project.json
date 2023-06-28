@@ -31,7 +31,8 @@
 			},
 			"configurations": {
 				"development": {
-					"buildTarget": "jobs-subgraph:build:development"
+					"buildTarget": "jobs-subgraph:build:development",
+					"port": 0
 				},
 				"production": {
 					"buildTarget": "jobs-subgraph:build:production"
