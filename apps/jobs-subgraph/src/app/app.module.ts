@@ -1,16 +1,19 @@
 import { ApolloServerPluginLandingPageLocalDefault } from "@apollo/server/plugin/landingPage/default";
-import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
+import {
+	ApolloFederationDriver,
+	ApolloFederationDriverConfig,
+} from "@nestjs/apollo";
 import { Module } from "@nestjs/common";
 import { GraphQLModule } from "@nestjs/graphql";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { AppController } from "./app.controller";
-import { JobsModule } from "./jobs/jobs.module";
 import { Job } from "./jobs/job.entity";
+import { JobsModule } from "./jobs/jobs.module";
 
 @Module({
 	imports: [
-		GraphQLModule.forRoot<ApolloDriverConfig>({
-			driver: ApolloDriver,
+		GraphQLModule.forRoot<ApolloFederationDriverConfig>({
+			driver: ApolloFederationDriver,
 			autoSchemaFile: true,
 			playground: false,
 			plugins: [ApolloServerPluginLandingPageLocalDefault()],

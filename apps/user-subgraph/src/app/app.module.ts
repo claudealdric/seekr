@@ -1,17 +1,19 @@
-import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
-
 import { ApolloServerPluginLandingPageLocalDefault } from "@apollo/server/plugin/landingPage/default";
-import { AppController } from "./app.controller";
-import { GraphQLModule } from "@nestjs/graphql";
+import {
+	ApolloFederationDriver,
+	ApolloFederationDriverConfig,
+} from "@nestjs/apollo";
 import { Module } from "@nestjs/common";
+import { GraphQLModule } from "@nestjs/graphql";
 import { TypeOrmModule } from "@nestjs/typeorm";
+import { AppController } from "./app.controller";
 import { User } from "./users/user.entity";
 import { UsersModule } from "./users/users.module";
 
 @Module({
 	imports: [
-		GraphQLModule.forRoot<ApolloDriverConfig>({
-			driver: ApolloDriver,
+		GraphQLModule.forRoot<ApolloFederationDriverConfig>({
+			driver: ApolloFederationDriver,
 			autoSchemaFile: true,
 			playground: false,
 			plugins: [ApolloServerPluginLandingPageLocalDefault()],
