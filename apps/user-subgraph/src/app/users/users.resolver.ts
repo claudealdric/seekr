@@ -1,8 +1,14 @@
-import { Args, Int, Mutation, Query, Resolver } from "@nestjs/graphql";
-
+import {
+	Args,
+	Int,
+	Mutation,
+	Query,
+	Resolver,
+	ResolveReference,
+} from "@nestjs/graphql";
+import { CreateUserInput } from "./create-user.input";
 import { User } from "./user.object";
 import { UsersService } from "./users.service";
-import { CreateUserInput } from "./create-user.input";
 
 @Resolver(() => User)
 export class UsersResolver {
@@ -23,5 +29,13 @@ export class UsersResolver {
 	@Mutation(() => User)
 	createUser(@Args("userData") userData: CreateUserInput): Promise<User> {
 		return this.usersService.createUser(userData);
+	}
+
+	@ResolveReference()
+	resolveReference(reference: {
+		__typename: string;
+		id: number;
+	}): Promise<User> {
+		return this.usersService.getUserById(reference.id);
 	}
 }
