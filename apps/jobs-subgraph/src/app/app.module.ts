@@ -14,7 +14,7 @@ import { JobsModule } from "./jobs/jobs.module";
 	imports: [
 		GraphQLModule.forRoot<ApolloFederationDriverConfig>({
 			driver: ApolloFederationDriver,
-			autoSchemaFile: true,
+			autoSchemaFile: { federation: 2 },
 			playground: false,
 			plugins: [ApolloServerPluginLandingPageLocalDefault()],
 			introspection: true,
