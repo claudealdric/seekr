@@ -5,6 +5,7 @@ import { GraphQLModule } from "@nestjs/graphql";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { AppController } from "./app.controller";
 import { JobsModule } from "./jobs/jobs.module";
+import { Job } from "./jobs/job.entity";
 
 @Module({
 	imports: [
@@ -22,7 +23,7 @@ import { JobsModule } from "./jobs/jobs.module";
 			username: process.env.POSTGRES_USERNAME,
 			password: process.env.POSTGRES_PASSWORD,
 			database: process.env.POSTGRES_DATABASE,
-			entities: [],
+			entities: [Job],
 			synchronize: true,
 		}),
 		JobsModule,
