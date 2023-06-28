@@ -1,0 +1,64 @@
+{
+	"name": "jobs-subgraph",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "apps/jobs-subgraph/src",
+	"projectType": "application",
+	"targets": {
+		"build": {
+			"executor": "@nx/webpack:webpack",
+			"outputs": ["{options.outputPath}"],
+			"defaultConfiguration": "production",
+			"options": {
+				"target": "node",
+				"compiler": "tsc",
+				"outputPath": "dist/apps/jobs-subgraph",
+				"main": "apps/jobs-subgraph/src/main.ts",
+				"tsConfig": "apps/jobs-subgraph/tsconfig.app.json",
+				"assets": ["apps/jobs-subgraph/src/assets"],
+				"isolatedConfig": true,
+				"webpackConfig": "apps/jobs-subgraph/webpack.config.js"
+			},
+			"configurations": {
+				"development": {},
+				"production": {}
+			}
+		},
+		"serve": {
+			"executor": "@nx/js:node",
+			"defaultConfiguration": "development",
+			"options": {
+				"buildTarget": "jobs-subgraph:build"
+			},
+			"configurations": {
+				"development": {
+					"buildTarget": "jobs-subgraph:build:development"
+				},
+				"production": {
+					"buildTarget": "jobs-subgraph:build:production"
+				}
+			}
+		},
+		"lint": {
+			"executor": "@nx/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["apps/jobs-subgraph/**/*.ts"]
+			}
+		},
+		"test": {
+			"executor": "@nx/jest:jest",
+			"outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+			"options": {
+				"jestConfig": "apps/jobs-subgraph/jest.config.ts",
+				"passWithNoTests": true
+			},
+			"configurations": {
+				"ci": {
+					"ci": true,
+					"codeCoverage": true
+				}
+			}
+		}
+	},
+	"tags": []
+}
