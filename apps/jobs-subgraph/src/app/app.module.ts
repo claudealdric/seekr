@@ -9,6 +9,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { AppController } from "./app.controller";
 import { Job } from "./jobs/job.entity";
 import { JobsModule } from "./jobs/jobs.module";
+import { UsersModule } from "./users/users.module";
 
 @Module({
 	imports: [
@@ -30,6 +31,7 @@ import { JobsModule } from "./jobs/jobs.module";
 			synchronize: true,
 		}),
 		JobsModule,
+		UsersModule,
 	],
 	controllers: [AppController],
 })
