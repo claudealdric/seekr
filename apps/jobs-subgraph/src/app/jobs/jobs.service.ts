@@ -20,4 +20,8 @@ export class JobsService {
 	getJobById(id: number): Promise<Job> {
 		return this.jobsRepository.findOneBy({ id });
 	}
+
+	getJobsByUserId(userId: number): Promise<Job[]> {
+		return this.jobsRepository.findBy({ userId });
+	}
 }

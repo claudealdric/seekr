@@ -10,4 +10,7 @@ export class Job {
 
 	@Column({ nullable: true })
 	description?: string;
+
+	@Column()
+	userId: number;
 }
