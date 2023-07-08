@@ -2,13 +2,17 @@ import {
 	Args,
 	Int,
 	Mutation,
+	Parent,
 	Query,
+	ResolveField,
 	Resolver,
 	ResolveReference,
 } from "@nestjs/graphql";
+import { User } from "../users/user.object";
+import { CreateJobInput } from "./create-job.input";
+import { Job as JobEntity } from "./job.entity";
 import { Job } from "./job.object";
 import { JobsService } from "./jobs.service";
-import { CreateJobInput } from "./create-job.input";
 
 @Resolver(() => Job)
 export class JobsResolver {
@@ -20,15 +24,20 @@ export class JobsResolver {
 	}
 
 	@Mutation(() => Job)
-	createJob(@Args("jobData") jobData: CreateJobInput): Promise<Job> {
+	createJob(@Args("jobData") jobData: CreateJobInput): Promise<JobEntity> {
 		return this.jobsService.createJob(jobData);
+	}
+
+	@ResolveField("user", () => User)
+	getUser(@Parent() job: Job) {
+		return { __typename: "User", id: job.userId };
 	}
 
 	@ResolveReference()
 	resolveReference(reference: {
 		__typename: string;
 		id: number;
-	}): Promise<Job> {
+	}): Promise<JobEntity> {
 		return this.jobsService.getJobById(reference.id);
 	}
 }
