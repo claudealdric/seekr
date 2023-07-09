@@ -6,7 +6,7 @@ import {
 import { Module } from "@nestjs/common";
 import { GraphQLModule } from "@nestjs/graphql";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { AppController } from "./app.controller";
+import { HealthController } from "shared";
 import { Job } from "./jobs/job.entity";
 import { JobsModule } from "./jobs/jobs.module";
 import { UsersModule } from "./users/users.module";
@@ -35,6 +35,6 @@ import { UsersModule } from "./users/users.module";
 		JobsModule,
 		UsersModule,
 	],
-	controllers: [AppController],
+	controllers: [HealthController],
 })
 export class AppModule {}
